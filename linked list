@@ -1,0 +1,68 @@
+#include <stdio.h>
+
+#include<stdlib.h>
+
+
+ struct node
+ {
+  int data;
+  struct node *next
+ };struct node *start=NULL,*newnode,*temp;
+ int count,c;
+ int main(){
+  
+  createlist();
+  
+ }
+
+  void createlist()
+  {
+   
+  newnode =(struct node*)malloc(sizeof(struct node));
+  printf("ENTER THE DATA IN NODE\n");
+  scanf("%d",& newnode->data);
+  newnode->next=NULL;
+  int count=0;
+   if(start==NULL)
+    {
+   start=temp=newnode;
+   
+    }
+  else{
+   temp->next=newnode;
+   temp=temp->next;
+      }
+  
+printf("do you want to make another node 0 for yes and 1 for no\n");
+scanf("%d",&c);
+if(c==0)
+ {
+  createlist();
+ 
+ }
+else if(c==1)
+ {
+ traverselist();
+ }
+else
+ exit(0);
+}
+
+ void traverselist()
+{
+    struct node *temp;
+
+    // Return if list is empty 
+    if(start == NULL)
+    {
+        printf("List is empty.");
+        return;
+    }
+    
+    temp = start;
+    while(temp != NULL)
+    {
+        printf("  %d", temp->data); // Print data of current node
+        temp = temp->next;                 // Move to next node
+    }
+}
