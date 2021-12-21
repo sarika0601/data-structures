@@ -1,0 +1,64 @@
+#include <stdio.h>
+int f=-1,r=-1;
+
+void enqueue(int m,int n,int a[])
+ {
+  if(r==(n-1))
+   {
+     printf("queue full\n");
+     
+   }
+   else if(f==-1 && r==-1)
+         {
+          ++f;
+          ++r;
+          a[r]=m;
+         }
+        else
+         {
+           ++r;
+           a[r]=m;
+         }
+ }
+ int median(int a[],int n)
+    {
+       int c,mid;
+       c=n-1;
+       mid=(c/2);
+       for(int i=0;i<n;i++)
+        {
+         if(i==mid)
+          {
+           printf("The median  in the queue is %d\n",a[i]);
+          
+          }
+        
+        }
+       
+    }
+void display(int a[])
+{
+ printf("the queue is : ");
+ 
+ for(int i=0;i<=r;i++)
+  {
+   printf( " %d  ",a[i]);
+  }
+  
+ printf("\n");
+}
+int main()
+{
+    int n=7;
+    int a[n];
+    enqueue(3,7,a);
+    enqueue(4,7,a);
+    enqueue(5,7,a);
+    enqueue(6,7,a);
+    enqueue(8,7,a);
+    enqueue(99,7,a);
+    enqueue(100,7,a);
+    display(a);
+    median(a,7);
+    return 0;
+}
